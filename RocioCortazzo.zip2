@@ -1,0 +1,52 @@
+Algoritmo TiendaDeComestibles
+	Definir diaMaximo Como Numerica;
+	Definir A, n, m, i, j, diaMaximo como entero;
+	Escribir "ingresa la cantidad de tipos de productos:  ";
+	leer n;
+	Escribir "ingresa la cantidad de dias: ";
+	leer m;
+	
+	Dimension A[n , m]; 
+	
+	Para i = 0 Hasta n - 1 Hacer
+		Para j = 0 Hasta M - 1 Hacer 
+			Escribir " ingrese la cantidad del producto " , i + 1, "en el dia " , j + 1, "; ";
+			leer A[i, j] ;
+		FinPara
+	FinPara
+	calcularCantidadTipo(A, n, m);
+	diaMaximo = hallarDiaMaximo(A, n, m);
+	Escribir "el dia con mayor cantidad total de productos tuvo", diaMaximo, "productos";
+	FinAlgoritmo
+
+	Funcion calcularCantidadTipo(A, n, m) 
+		Definir i, j, B, acumulador Como Entero;
+		Dimension B[n];
+		
+		Para i = 0 Hasta n - 1 Hacer 
+			acumulador = 0;
+			Para j = 0 Hasta n - 1 Hacer
+				acumulador = acumulador + A[i, j];
+			FinPara
+		    B[i] = acumulador; 
+	FinPara
+	
+	Para i = 0 Hasta n - 1 Hacer 
+		Escribir "cantidad total del tipo ", i + 1, " durante los dias: ", B[i];
+		FinPara
+FinFuncion
+
+Funcion hallarDiaMaximo(A, n, m)
+	Definir i, j, acumulador, diaMaximo Como Entero;
+	diaMaximo = 0;
+	Para j = 0 Hasta n - 1 Hacer 
+		acumulador = acumulador + A[j, i];
+	FinPara
+	
+	Si (acumulador > diaMaximo) Entonces 
+		diaMaximo = acumulador; 
+	FinSi
+FinFuncion
+
+
+
